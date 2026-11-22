@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "check": "node scripts/check-pages.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.0",
+    "js-yaml": "^5.5.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "vite": "^5.4.14",
