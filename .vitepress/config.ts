@@ -50,6 +50,8 @@ export default defineConfig({
   description: "Product pages and user documentation for EstimateSync.",
   appearance: false,
   cleanUrls: true,
+  // The es-site repo's editing guide for Claude. It is not a page.
+  srcExclude: ["CLAUDE.md"],
   outDir: isStandalone ? ".vitepress/dist" : "../dist-docs",
   vite: {
     envDir: isStandalone ? undefined : projectRoot,
