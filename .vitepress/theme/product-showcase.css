@@ -1,0 +1,479 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.product-page {
+  /* Precision & Polish Design Palette (DESIGN.md) */
+  --product-bg: #f8f9ff;           /* surface / background */
+  --product-ink: #0b1c30;          /* on-surface / on-background */
+  --product-muted: #45474c;        /* on-surface-variant */
+  --product-soft: #eff4ff;         /* surface-container-low */
+  --product-line: #c5c6cd;         /* outline-variant */
+  --product-accent: #091426;       /* primary (deep navy) */
+  --product-accent-light: #e5eeff; /* surface-container */
+  
+  --product-warm: #fea619;         /* secondary-container (amber orange) */
+  --product-warm-dark: #684000;    /* on-secondary-container (dark amber text) */
+  --product-warm-light: #ffddb8;   /* secondary-fixed (light amber tint) */
+  --vp-font-family-base: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.product-page .VPNavBarSearch {
+  display: none;
+}
+
+.product-page .VPContent {
+  padding-top: 0;
+}
+
+/* Outer layout wrapper - spans full width of the screen */
+.product-showcase {
+  width: 100%;
+  color: var(--product-ink);
+  font-family: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--product-bg);
+  padding: 80px 0 120px;
+}
+
+.product-showcase--has-banner {
+  padding-top: 0;
+}
+
+/* Background Textures and Colors (Fluid full-screen presentation) */
+.product-showcase__decor-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(30, 45, 74, 0.085) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.product-showcase__decor-blob-1 {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(254, 166, 25, 0.08) 0%, rgba(254, 166, 25, 0) 70%);
+  border-radius: 50%;
+  top: -60px;
+  left: -160px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.product-showcase__decor-blob-2 {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(203, 219, 245, 0.28) 0%, rgba(203, 219, 245, 0) 70%);
+  border-radius: 50%;
+  bottom: 12%;
+  right: -100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.product-showcase__decor-blob-3 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(229, 238, 255, 0.22) 0%, rgba(229, 238, 255, 0) 70%);
+  border-radius: 50%;
+  top: 35%;
+  left: 25%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Inner Sections - Constrained to 1120px and centered */
+.product-showcase__hero,
+.product-showcase__feature,
+.product-showcase__related {
+  position: relative;
+  z-index: 1;
+}
+
+.product-showcase__banner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 48px), 1120px);
+  margin: 0 auto;
+}
+
+.product-showcase__banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.product-showcase__hero,
+.product-showcase__feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 1fr);
+  align-items: center;
+  gap: clamp(40px, 8vw, 96px);
+  
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.product-showcase__hero {
+  min-height: calc(100vh - 180px);
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+/* Headings & Text */
+.product-showcase h1 {
+  margin: 0;
+  color: var(--product-ink);
+  font-size: clamp(38px, 4.5vw, 48px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.product-showcase__lead {
+  max-width: 640px;
+  margin: 24px 0 0;
+  color: var(--product-muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* Feature Sections alternating layout */
+.product-showcase__feature {
+  padding: 96px 24px;
+  border-top: 1px solid var(--product-line);
+}
+
+.product-showcase__feature--image-left .product-showcase__feature-copy {
+  order: 2;
+}
+
+.product-showcase__feature--image-left .product-showcase__media-container {
+  order: 1;
+}
+
+.product-showcase__feature--no-image {
+  grid-template-columns: minmax(0, 720px);
+}
+
+.product-showcase__feature-copy h2 {
+  margin: 0 0 20px;
+  color: var(--product-ink);
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.product-showcase__feature-copy p {
+  margin: 0 0 20px;
+  color: var(--product-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Bullets match the landing-page checklist. */
+.product-showcase__bullets {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-showcase__bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e4e0d8;
+  color: #4e5f7a;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.product-showcase__bullet-item:last-child {
+  border-bottom: none;
+}
+
+.product-showcase__bullet-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f5a623;
+  color: #1e2d4a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.product-showcase__bullet-text {
+  color: inherit;
+}
+
+/* Media Layout & Subtle Glow Backdrop */
+.product-showcase__media-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.product-showcase__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  background: linear-gradient(135deg, rgba(254, 166, 25, 0.1) 0%, rgba(203, 219, 245, 0.22) 100%);
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  filter: blur(24px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Browser Mockup Frame (Subtle outline, no colored dots, no URL address bar) */
+.browser-mockup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid var(--product-line);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 28, 48, 0.06);
+}
+
+.browser-chrome {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--product-soft);
+  border-bottom: 1px solid var(--product-line);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.browser-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--product-line);
+}
+
+.browser-screen {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.browser-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Mobile Phone Mockup Frame (Subtle, no speaker notch, 1px border frame with margin) */
+.phone-mockup {
+  width: clamp(288px, 25vw, 360px);
+  margin: 0 auto;
+}
+
+.phone-frame {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--product-line);
+  padding: 6px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(11, 28, 48, 0.06);
+  overflow: hidden;
+}
+
+.phone-screen {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--product-soft);
+}
+
+.phone-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Related Resources Section as static cards */
+.product-showcase__related {
+  margin: 64px auto 0;
+  width: calc(100% - 48px);
+  max-width: 1120px;
+  padding: 48px;
+  border: 1px solid var(--product-line);
+  border-radius: 8px;
+  background: var(--product-soft);
+}
+
+.product-showcase__related h2 {
+  margin: 0 0 24px;
+  color: var(--product-ink);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.product-showcase__related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.product-showcase__related-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border: 1px solid var(--product-line);
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none !important;
+  transition: border-color 0.25s ease;
+}
+
+.product-showcase__related-card:hover {
+  border-color: var(--product-warm);
+}
+
+.product-showcase__related-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-showcase__related-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--product-ink);
+  transition: color 0.25s ease;
+}
+
+.product-showcase__related-card:hover .product-showcase__related-card-title {
+  color: var(--product-warm-dark);
+}
+
+.product-showcase__related-card-desc {
+  font-size: 14px;
+  color: var(--product-muted);
+}
+
+.product-showcase__related-card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--product-muted);
+  transition: color 0.25s ease;
+}
+
+.product-showcase__related-card-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.product-showcase__related-card:hover .product-showcase__related-card-arrow {
+  color: var(--product-warm-dark);
+}
+
+/* Responsiveness */
+@media (max-width: 960px) {
+  .phone-mockup {
+    width: 260px;
+  }
+}
+
+@media (max-width: 780px) {
+  .product-showcase {
+    padding: 48px 0 72px;
+  }
+
+  .product-showcase__hero,
+  .product-showcase__feature {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .product-showcase__hero {
+    min-height: auto;
+    padding-top: 20px;
+    padding-bottom: 56px;
+  }
+
+  .product-showcase__hero-copy {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-showcase__lead {
+    margin-top: 18px;
+  }
+
+  .product-showcase__feature {
+    padding: 64px 20px;
+  }
+
+  .product-showcase__feature-copy {
+    order: initial !important;
+  }
+
+  .product-showcase__media-container {
+    order: initial !important;
+    margin-top: 8px;
+  }
+
+  .product-showcase__glow {
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+  }
+
+  .product-showcase__related {
+    padding: 32px 20px;
+    margin-top: 48px;
+    width: calc(100% - 40px);
+  }
+
+  .product-showcase__related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-showcase h1 {
+    font-size: 34px;
+  }
+
+  .phone-mockup {
+    width: 240px;
+  }
+}

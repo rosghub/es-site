@@ -1,0 +1,165 @@
+{
+  "generatedFiles": [],
+  "pages": [
+    {
+      "source": "../pqp/.ai/docs/publish/guide/account-settings.md",
+      "target": "docs/guide/account-settings.md",
+      "intendedUrl": "/docs/guide/account-settings",
+      "audience": "signed-up users; account admins",
+      "sourcePacket": "account-settings-portal-packet.md",
+      "title": "Account Settings and Portal"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/guide/account-team-access.md",
+      "target": "docs/guide/account-team-access.md",
+      "intendedUrl": "/docs/guide/account-team-access",
+      "audience": "signed-up users; account admins",
+      "sourcePacket": "organizations-packet.md",
+      "title": "Account and Team Access"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/guide/contacts-appointments.md",
+      "target": "docs/guide/contacts-appointments.md",
+      "intendedUrl": "/docs/guide/contacts-appointments",
+      "audience": "signed-up users; estimators; team members",
+      "sourcePacket": "contacts-appointments-packet.md",
+      "title": "Contacts and Appointments"
+    },
+    {
+      "source": "../docs/publish/guide/integrations.md",
+      "target": "docs/guide/integrations.md",
+      "intendedUrl": "/docs/guide/integrations",
+      "audience": "signed-up users; account admins; integration developers",
+      "sourcePacket": "account-settings-portal-packet.md",
+      "title": "Integrations"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/guide/project-editor.md",
+      "target": "docs/guide/project-editor.md",
+      "intendedUrl": "/docs/guide/project-editor",
+      "audience": "signed-up users; estimators",
+      "sourcePacket": "project-editor-packet.md",
+      "title": "Project Editor"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/guide/projects-estimates-invoices.md",
+      "target": "docs/guide/projects-estimates-invoices.md",
+      "intendedUrl": "/docs/guide/projects-estimates-invoices",
+      "audience": "signed-up users; estimators; account admins",
+      "sourcePacket": "projects-packet.md",
+      "title": "Projects, Estimates, Invoices, and Payments"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/reference/glossary.md",
+      "target": "docs/reference/glossary.md",
+      "intendedUrl": "/docs/reference/glossary",
+      "audience": "signed-up users; prospects; account admins; estimators; team members",
+      "sourcePacket": "shared-glossary.md",
+      "title": "Glossary"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/reference/items.md",
+      "target": "docs/reference/items.md",
+      "intendedUrl": "/docs/reference/items",
+      "audience": "signed-up users; estimators; account admins",
+      "sourcePacket": "items-packet.md",
+      "title": "Items Reference"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/reference/payment-settings.md",
+      "target": "docs/reference/payment-settings.md",
+      "intendedUrl": "/docs/reference/payment-settings",
+      "audience": "signed-up users; account admins",
+      "sourcePacket": "account-settings-portal-packet.md; projects-packet.md",
+      "title": "Payment Settings"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/reference/project-statuses.md",
+      "target": "docs/reference/project-statuses.md",
+      "intendedUrl": "/docs/reference/project-statuses",
+      "audience": "signed-up users; estimators; account admins",
+      "sourcePacket": "projects-packet.md",
+      "title": "Project Statuses"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/reference/roles-and-permissions.md",
+      "target": "docs/reference/roles-and-permissions.md",
+      "intendedUrl": "/docs/reference/roles-and-permissions",
+      "audience": "signed-up users; account admins",
+      "sourcePacket": "organizations-packet.md",
+      "title": "Roles and Permissions"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/account-settings.md",
+      "target": "paint-estimate-app/account-settings.md",
+      "intendedUrl": "/paint-estimate-app/account-settings",
+      "audience": "prospects",
+      "sourcePacket": "account-settings-portal-packet.md",
+      "title": "Account Console and Document Settings"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/customer-management.md",
+      "target": "paint-estimate-app/contacts-appointments.md",
+      "intendedUrl": "/paint-estimate-app/contacts-appointments",
+      "audience": "prospects",
+      "sourcePacket": "contacts-appointments-packet.md",
+      "title": "Contacts and Appointments"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/estimating.md",
+      "target": "paint-estimate-app/estimating.md",
+      "intendedUrl": "/paint-estimate-app/estimating",
+      "audience": "prospects",
+      "sourcePacket": "project-editor-packet.md",
+      "title": "Painting Estimate Calculator & Room-by-Room Estimating"
+    },
+    {
+      "source": "paint-estimate-app/how-to-estimate-a-painting-job.md",
+      "target": "paint-estimate-app/how-to-estimate-a-painting-job.md",
+      "intendedUrl": "/paint-estimate-app/how-to-estimate-a-painting-job",
+      "audience": "prospects",
+      "sourcePacket": "co-founder field notes",
+      "title": "How to Estimate a Painting Job, Room by Room"
+    },
+    {
+      "source": "paint-estimate-app/how-to-price-a-painting-job.md",
+      "target": "paint-estimate-app/how-to-price-a-painting-job.md",
+      "intendedUrl": "/paint-estimate-app/how-to-price-a-painting-job",
+      "audience": "prospects",
+      "sourcePacket": "co-founder field notes",
+      "title": "How to Price a Painting Job: Square-Foot Rates vs. Pricing the Time"
+    },
+    {
+      "source": "paint-estimate-app/painting-estimate-spreadsheet.md",
+      "target": "paint-estimate-app/painting-estimate-spreadsheet.md",
+      "intendedUrl": "/paint-estimate-app/painting-estimate-spreadsheet",
+      "audience": "prospects",
+      "sourcePacket": "co-founder field notes",
+      "title": "Painting Estimate Spreadsheet: What to Track and When to Outgrow It"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/payments.md",
+      "target": "paint-estimate-app/payments.md",
+      "intendedUrl": "/paint-estimate-app/payments",
+      "audience": "prospects",
+      "sourcePacket": "projects-packet.md; account-settings-portal-packet.md",
+      "title": "Painting Invoices, Deposits, and Payment Tracking"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/projects.md",
+      "target": "paint-estimate-app/projects.md",
+      "intendedUrl": "/paint-estimate-app/projects",
+      "audience": "prospects",
+      "sourcePacket": "projects-packet.md",
+      "title": "Painting Estimate Projects"
+    },
+    {
+      "source": "../pqp/.ai/docs/publish/product-pages/teams.md",
+      "target": "paint-estimate-app/teams.md",
+      "intendedUrl": "/paint-estimate-app/teams",
+      "audience": "prospects",
+      "sourcePacket": "organizations-packet.md",
+      "title": "Team Access for Painting Businesses"
+    }
+  ]
+}
