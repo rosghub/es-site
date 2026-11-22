@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-// Banners live in the React app's public directory with width variants from
+// Banners live in public/banners with width variants from
 // scripts/generate-screenshot-srcset.sh, the same as the product page banners.
 const props = defineProps<{
   src: string;

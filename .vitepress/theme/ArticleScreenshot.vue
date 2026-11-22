@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-// Screenshots live in the React app's public directory, so article pages pass
-// them as props instead of markdown images that VitePress would try to bundle.
+// Screenshots live in public/screenshots, so article pages pass them as props
+// instead of markdown images that VitePress would try to bundle.
 const props = defineProps<{
   src: string;
   alt: string;
