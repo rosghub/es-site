@@ -1,0 +1,40 @@
+{
+  "name": "EstimateSync site",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-bookworm",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+  },
+  "secrets": {
+    "CLAUDE_CODE_OAUTH_TOKEN": {
+      "description": "Optional. A token from `claude setup-token` signs Claude Code in automatically in every codespace. Leave it out to sign in inside the codespace instead."
+    }
+  },
+  "remoteEnv": {
+    "CLAUDE_CONFIG_DIR": "/workspaces/.claude-config",
+    "PQP_APP_ORIGIN": "https://estimatesync.com"
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends imagemagick && mkdir -p /workspaces/.claude-config && npm ci",
+  "postAttachCommand": {
+    "site preview": "curl -s -o /dev/null http://localhost:5173 || npm run dev -- --port 5173 --strictPort"
+  },
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Site preview",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "GitHub.vscode-pull-request-github",
+        "MS-vsliveshare.vsliveshare"
+      ]
+    }
+  }
+}

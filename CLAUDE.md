@@ -13,6 +13,40 @@ stack: Markdown pages with frontmatter, Vue components for anything a page
 can't do in Markdown, and CSS files scoped to a page type. Don't add raw HTML
 pages, React, or another framework.
 
+## Working with the user
+
+The person asking for changes runs this repository in a GitHub codespace and
+isn't a developer. They don't read code or run commands, so you do all of it.
+
+- Explain what you did in plain language: which page changed and what a
+  reader now sees there. Don't paste code or command output unless they ask.
+- Don't ask them to run commands, edit files, or use git. If you need
+  something only they can give, such as an image or a choice between two
+  wordings, ask for it in plain words.
+- When a request is unclear, ask one short question before you start.
+- The site preview runs on port 5173 and opens in a "Site preview" tab.
+  VS Code's Ports panel also lists it. After a change, tell the user which
+  page to open there, such as `/docs/guide/glossary`. The preview reloads by
+  itself. If it isn't running, start it with `npm run dev -- --port 5173`.
+
+Each request gets its own branch and pull request:
+
+1. Start from an up-to-date `main`: run `git switch main`, then `git pull`.
+   If there are uncommitted changes, ask the user whether they belong to an
+   earlier request before you touch them.
+2. Create a branch named for the request, such as
+   `git switch -c ui/estimating-apps-page`.
+3. Make the change, then follow "Before you open the pull request" below.
+4. Push the branch and open the pull request with `gh pr create`. Give the
+   user its link and one sentence on what it changes.
+5. Follow-up changes to the same request go on the same branch. Commit and
+   push them, and the pull request updates itself.
+
+Never merge a pull request, push to `main`, or force-push. The site owner
+reviews every pull request. Merging doesn't put a change on the live site.
+The owner publishes merged changes later. Tell the user this the first time
+you give them a pull request link.
+
 ## How the site is put together
 
 - **Pages** are Markdown files. A page's file path is its route:
@@ -164,13 +198,14 @@ width. `scripts/generate-screenshot-srcset.sh` makes them. It writes
 `<name>_864w.png`, and `<name>_1152w.png`.
 
 1. Get the source image as a file. If the user attached it in chat and you
-   can't find it on disk, ask them to upload it on GitHub into an `incoming/`
-   folder on your branch, then pull the branch.
+   can't find it on disk, create an `incoming/` folder at the top of the
+   repository. Ask the user to drag the image from their computer onto that
+   folder in VS Code's file explorer.
 2. Pick a new name of lowercase letters, numbers, `-`, and `_`, such as
    `estimate-review`. Never reuse a name that already exists in `public/`.
-3. Run the script. It needs ImageMagick. If `magick` and `convert` are both
-   missing, install it first with
-   `apt-get update && apt-get install -y imagemagick`.
+3. Run the script. It needs ImageMagick, which the codespace installs. If
+   `magick` and `convert` are both missing, install it first with
+   `sudo apt-get update && sudo apt-get install -y imagemagick`.
    - Phone screenshots:
      `bash scripts/generate-screenshot-srcset.sh <file> public/screenshots <name>`
    - Wide banners:
@@ -223,6 +258,8 @@ Write "purpose" or "role" instead.
 - `package.json`, `package-lock.json`, and `.gitignore`.
 - `.public-docs-manifest.json`. The live site's build regenerates it.
 - Anything in `scripts/`.
+- `.devcontainer/` and `.claude/`, which set up the codespace and your
+  permissions.
 - This file.
 
 ## Before you open the pull request
@@ -230,14 +267,15 @@ Write "purpose" or "role" instead.
 1. Run `npm ci` if `node_modules` is missing, then `npm run check` and
    `npm run build`. Fix every problem they report. The build fails on links to
    pages that don't exist.
-2. Never push to `main`. GitHub rejects it. Work on a branch and open a pull
-   request.
+2. Never push to `main`. Work on a branch and open a pull request, as
+   "Working with the user" describes.
 3. Start the commit message with `ui:`, for example
    `ui: add the estimating apps comparison page`.
 4. In the pull request description, list each page you changed or created
    with its route, and each component or CSS file you added or changed, with
    one sentence each on what changed. Call out any change to `Layout.vue`,
    `config.ts`, or a component other pages use.
-5. Cloudflare Pages builds a preview of every branch and posts its link on the
-   pull request. Open each changed or new page there at a phone width and a
-   desktop width.
+5. Ask the user to open each changed or new page in the site preview, once in
+   a full-width window and once in a narrow one, and to confirm it looks
+   right. If the pull request shows a Cloudflare Pages preview link, give
+   them that link too.
