@@ -24,10 +24,9 @@ isn't a developer. They don't read code or run commands, so you do all of it.
   something only they can give, such as an image or a choice between two
   wordings, ask for it in plain words.
 - When a request is unclear, ask one short question before you start.
-- The site preview runs on port 5173 and opens in a "Site preview" tab.
-  VS Code's Ports panel also lists it. After a change, tell the user which
-  page to open there, such as `/docs/guide/glossary`. The preview reloads by
-  itself. If it isn't running, start it with `npm run dev -- --port 5173`.
+- After every change to the site, make sure the preview is running and give
+  the user a link to each page you changed. See "Showing the user a preview"
+  below.
 
 Each request gets its own branch and pull request:
 
@@ -46,6 +45,24 @@ Never merge a pull request, push to `main`, or force-push. The site owner
 reviews every pull request. Merging doesn't put a change on the live site.
 The owner publishes merged changes later. Tell the user this the first time
 you give them a pull request link.
+
+## Showing the user a preview
+
+Do this after every change to the site, before you report back:
+
+1. Check whether the dev server is running:
+   `curl -s -o /dev/null http://localhost:5173`. If the check fails, start
+   the server in the background with
+   `nohup npm run dev -- --port 5173 --strictPort > /tmp/site-preview.log 2>&1 &`,
+   then repeat the check until it succeeds. If it still fails after about 30
+   seconds, read `/tmp/site-preview.log` and fix the problem.
+2. Build the link. In a codespace, run
+   `echo "https://$CODESPACE_NAME-5173.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"`
+   and add the page's route, such as `/docs/guide/glossary`. Outside a
+   codespace, the link starts with `http://localhost:5173`.
+3. Give the user one link per changed or new page. Tell them the preview
+   updates by itself, so they can keep the tab open while you make more
+   changes.
 
 ## How the site is put together
 

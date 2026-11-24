@@ -57,6 +57,11 @@ export default defineConfig({
     envDir: isStandalone ? undefined : projectRoot,
     define: docsEnvDefine,
     plugins: [react()],
+    // GitHub Codespaces serves the dev server's preview from *.app.github.dev,
+    // which Vite blocks unless it is allowed here.
+    server: {
+      allowedHosts: [".app.github.dev"],
+    },
     resolve: {
       alias: {
         "@docs-support-assistant": isStandalone
