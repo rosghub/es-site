@@ -59,7 +59,12 @@ export default defineConfig({
   outDir: isStandalone ? ".vitepress/dist" : "../dist-docs",
   vite: {
     envDir: isStandalone ? undefined : projectRoot,
-    define: docsEnvDefine,
+    define: {
+      ...docsEnvDefine,
+      // True only in es-site preview builds. Layout.vue uses it to send the
+      // preview's home address to the landing page preview.
+      __ES_SITE_PREVIEW__: JSON.stringify(isStandalone),
+    },
     plugins: [react()],
     // GitHub Codespaces serves the dev server's preview from *.app.github.dev,
     // which Vite blocks unless it is allowed here.
