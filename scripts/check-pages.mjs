@@ -8,6 +8,8 @@ import { lintPage } from "./page-rules.mjs";
 const contentRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SKIPPED_DIRECTORIES = new Set([".git", ".vitepress", "node_modules", "public", "scripts"]);
 const SKIPPED_FILES = new Set(["CLAUDE.md"]);
+// landing/ holds the web app's landing page and its preview, not site pages.
+const SKIPPED_ROOT_DIRECTORIES = new Set(["landing"]);
 
 async function listPages(directory) {
   const entries = await fs.readdir(directory, { withFileTypes: true });
@@ -15,7 +17,10 @@ async function listPages(directory) {
     entries.map(async (entry) => {
       const entryPath = path.join(directory, entry.name);
       if (entry.isDirectory()) {
-        return SKIPPED_DIRECTORIES.has(entry.name) ? [] : listPages(entryPath);
+        const skipped =
+          SKIPPED_DIRECTORIES.has(entry.name) ||
+          (directory === contentRoot && SKIPPED_ROOT_DIRECTORIES.has(entry.name));
+        return skipped ? [] : listPages(entryPath);
       }
       return entry.isFile() && entry.name.endsWith(".md") && !SKIPPED_FILES.has(entry.name)
         ? [entryPath]

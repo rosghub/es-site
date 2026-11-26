@@ -51,7 +51,11 @@ export default defineConfig({
   appearance: false,
   cleanUrls: true,
   // The es-site repo's editing guide for Claude. It is not a page.
-  srcExclude: ["CLAUDE.md"],
+  // landing/page.md previews the web app's landing page at its real route.
+  // Only standalone builds include it. In the monorepo, the web app serves
+  // /paint-estimate-app, and a docs page there would replace it.
+  srcExclude: isStandalone ? ["CLAUDE.md"] : ["CLAUDE.md", "landing/**"],
+  rewrites: isStandalone ? { "landing/page.md": "paint-estimate-app.md" } : {},
   outDir: isStandalone ? ".vitepress/dist" : "../dist-docs",
   vite: {
     envDir: isStandalone ? undefined : projectRoot,
