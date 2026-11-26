@@ -19,7 +19,7 @@
   },
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends imagemagick && mkdir -p /workspaces/.claude-config && npm ci",
   "postAttachCommand": {
-    "site preview": "curl -s -o /dev/null http://localhost:5173 || npm run dev -- --port 5173 --strictPort"
+    "site preview": "bash .devcontainer/sync-main.sh; curl -s -o /dev/null http://localhost:5173 || npm run dev -- --port 5173 --strictPort"
   },
   "forwardPorts": [5173],
   "portsAttributes": {
