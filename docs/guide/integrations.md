@@ -11,7 +11,7 @@ audience: "signed-up users; account admins; integration developers"
 
 # Integrations
 
-EstimateSync connects to a CRM, form builder, spreadsheet, or automation
+EstimateSync can connect to a CRM, form builder, spreadsheet, or automation
 service. It can receive data from those systems and send data to them:
 
 - Inbound endpoints accept contacts and sold-project updates from another
