@@ -16,8 +16,8 @@ It is written in React, and "The landing page" below explains how to edit it.
 
 ## Working with the user
 
-The person asking for changes runs this repository in a GitHub codespace and
-isn't a developer. They don't read code or run commands, so you do all of it.
+The person asking for changes works with this repository either in a GitHub
+codespace or in a Claude Code cloud session, and isn't a developer. They don't read code or run commands, so you do all of it.
 
 - Explain what you did in plain language: which page changed and what a
   reader now sees there. Don't paste code or command output unless they ask.
@@ -25,9 +25,8 @@ isn't a developer. They don't read code or run commands, so you do all of it.
   something only they can give, such as an image or a choice between two
   wordings, ask for it in plain words.
 - When a request is unclear, ask one short question before you start.
-- After every change to the site, make sure the preview is running and give
-  the user a link to each page you changed. See "Showing the user a preview"
-  below.
+- After every change to the site, give the user a preview link to each page
+  you changed. See "Showing the user a preview" below.
 
 Each request gets its own branch and pull request:
 
@@ -53,7 +52,15 @@ you give them a pull request link.
 
 ## Showing the user a preview
 
-Do this after every change to the site, before you report back:
+Do this after every change to the site, before you report back.
+
+First check whether you're in a codespace: run `echo "$CODESPACES"`. If it
+doesn't print `true`, you're in a cloud session, and the user can't open a
+preview running on this machine. Skip the steps below. Commit and push the
+change to the pull request branch instead, then follow "The Cloudflare Pages
+preview" below.
+
+In a codespace:
 
 1. Check whether the dev server is running:
    `curl -s -o /dev/null http://localhost:5173`. If the check fails, start
@@ -61,10 +68,9 @@ Do this after every change to the site, before you report back:
    `nohup npm run dev -- --port 5173 --strictPort > /tmp/site-preview.log 2>&1 &`,
    then repeat the check until it succeeds. If it still fails after about 30
    seconds, read `/tmp/site-preview.log` and fix the problem.
-2. Build the link. In a codespace, run
+2. Build the link. Run
    `echo "https://$CODESPACE_NAME-5173.$GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"`
-   and add the page's route, such as `/docs/guide/glossary`. Outside a
-   codespace, the link starts with `http://localhost:5173`.
+   and add the page's route, such as `/docs/guide/glossary`.
 3. Give the user one link per changed or new page. Tell them the preview
    updates by itself, so they can keep the tab open while you make more
    changes.
@@ -273,9 +279,13 @@ width. `scripts/generate-screenshot-srcset.sh` makes them. It writes
 `<name>_864w.png`, and `<name>_1152w.png`.
 
 1. Get the source image as a file. If the user attached it in chat and you
-   can't find it on disk, create an `incoming/` folder at the top of the
-   repository. Ask the user to drag the image from their computer onto that
-   folder in VS Code's file explorer.
+   can't find it on disk:
+   - In a codespace, create an `incoming/` folder at the top of the
+     repository. Ask the user to drag the image from their computer onto
+     that folder in VS Code's file explorer.
+   - In a cloud session, the user can't add files to this machine. Ask them
+     for a link you can download the image from, and download it into
+     `incoming/`.
 2. Pick a new name of lowercase letters, numbers, `-`, and `_`, such as
    `estimate-review`. Never reuse a name that already exists in `public/`.
 3. Run the script. It needs ImageMagick, which the codespace installs. If
@@ -350,7 +360,8 @@ Write "purpose" or "role" instead.
    with its route, and each component or CSS file you added or changed, with
    one sentence each on what changed. Call out any change to `Layout.vue`,
    `config.ts`, or a component other pages use.
-5. Ask the user to open each changed or new page in the site preview, once in
+5. Ask the user to open each changed or new page in the preview (the
+   codespace preview, or the Cloudflare Pages preview link), once in
    a full-width window and once in a narrow one, and to confirm it looks
    right.
 
