@@ -39,8 +39,12 @@ Each request gets its own branch and pull request:
 3. Make the change, then follow "Before you open the pull request" below.
 4. Push the branch and open the pull request with `gh pr create`. Give the
    user its link and one sentence on what it changes.
-5. Follow-up changes to the same request go on the same branch. Commit and
-   push them, and the pull request updates itself.
+5. Wait for the Cloudflare Pages preview check to finish with
+   `gh pr checks <number> --watch`, then give the user the preview link. See
+   "The Cloudflare Pages preview" below.
+6. Follow-up changes to the same request go on the same branch. Commit and
+   push them, and the pull request updates itself. The preview check runs
+   again on every push, so wait for it again and give the user the new link.
 
 Never merge a pull request, push to `main`, or force-push. The site owner
 reviews every pull request. Merging doesn't put a change on the live site.
@@ -348,5 +352,18 @@ Write "purpose" or "role" instead.
    `config.ts`, or a component other pages use.
 5. Ask the user to open each changed or new page in the site preview, once in
    a full-width window and once in a narrow one, and to confirm it looks
-   right. If the pull request shows a Cloudflare Pages preview link, give
-   them that link too.
+   right.
+
+## The Cloudflare Pages preview
+
+Cloudflare Pages builds a preview of the site on every push to a pull
+request branch. After you open a pull request or push to one:
+
+1. Wait for the check to finish: `gh pr checks <number> --watch`. Don't
+   report back to the user before it finishes.
+2. Find the preview link in the Cloudflare Pages check's details or in the
+   comment Cloudflare posts on the pull request.
+3. Give the user the preview link for each changed or new page: the preview
+   link followed by the page's route.
+4. If the check fails, read its details, fix the problem, push again, and
+   wait for the new check.
