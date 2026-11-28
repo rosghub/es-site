@@ -200,9 +200,10 @@ export default function LandingPage({ WaitlistForm }: LandingPageProps) {
                             Start estimating. <span>Not setting up software.</span>
                         </h1>
                         <p className="hero-sub">
-                            EstimateSync comes ready for real painting jobs, with the flexibility to
-                            adjust pricing, production rates, materials, and estimates to fit the way
-                            you work.
+                            EstimateSync is a painting estimate app built for painting contractors.
+                            It comes ready for real residential and commercial painting jobs, and you
+                            can adjust pricing, production rates, materials, and estimates to fit the
+                            way you work.
                         </p>
                         <div className="hero-actions">
                             <a href="#waitlist" className="hero-btn-primary">Request Invite →</a>
